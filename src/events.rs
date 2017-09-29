@@ -4,6 +4,10 @@ pub trait Eventer {
     fn execute(&mut self) -> Option<Duration>;
 }
 
+/// A basic scheduled event. `task` will be called once when added to the scheduler.
+/// A mutable reference to `state` will be passed to `task` on each call.
+/// if `task` returns `Some(Duration)`, `task` will be rerun after that amount of time has passed.
+/// if `task` returns `None`, the `BasicEvent` will be dropped
 pub struct BasicEvent<F, T>
 where
     F: FnMut(&mut T) -> Option<Duration>,

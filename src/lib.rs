@@ -19,6 +19,7 @@ pub struct Scheduler {
 }
 
 impl Scheduler {
+    /// Create a new Scheduler instance
     pub fn new() -> Self {
         let (tx,rx) = channel();
         Scheduler {
@@ -28,10 +29,12 @@ impl Scheduler {
         }
     }
 
+    /// Obtain a handle to send new tasks to
     pub fn add_handle(&self) -> Sender<Box<Eventer + Send>> {
         self.new_items_tx.clone()
     }
 
+    /// Run the scheduler. Will block forever
     pub fn run(&mut self) {
         loop {
             self.step()
