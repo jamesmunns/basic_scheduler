@@ -1,0 +1,12 @@
+[package]
+name = "basic_scheduler"
+version = "0.1.0"
+authors = ["James Munns <james.munns@gmail.com>"]
+description = "A basic time-based scheduling system"
+license = "MIT"
+documentation = "https://docs.rs/basic_scheduler"
+homepage = "https://docs.rs/basic_scheduler"
+repository = "https://github.com/jamesmunns/basic_scheduler"
+
+[dependencies]
+chrono = "0.4"
